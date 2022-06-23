@@ -1,0 +1,21 @@
+.select {
+  margin: 10px;
+
+  .react-select {
+    &__control {
+      border: 9;
+      border-radius: 30;
+    }
+
+    &__indicator-separator {
+      display: none;
+    }
+
+    &__menu {
+      border-radius: 30;
+      position: absolute;
+      width: 100%;
+      z-index: 100;
+    }
+  }
+}
