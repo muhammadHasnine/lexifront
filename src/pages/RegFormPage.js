@@ -75,9 +75,8 @@ const LoginFormPage = () => {
     //   setToken(res.data.user,res.data.access_token);
     // })
 
-    http.post('/postarticle',{email:email,password:password,userid:userId}).then((res)=>{
-      setToken(res.data.user,res.data.access_token);
-    })
+    http.post('/teacher/register',{email:email,password:password,user_id:userId})
+  
 
   }
 

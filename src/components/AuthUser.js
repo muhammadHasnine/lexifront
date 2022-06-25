@@ -23,17 +23,13 @@ export default function AuthUser() {
         setUser(user);
         
     }
-    // const http = axios.create({
-    //     baseURL:"http://127.0.0.1:8000/api",
-    //     headers:{
-    //         "Content-type" : "aplication/json"
-    //     }
-    // });
     const http = axios.create({
-        baseURL: "http://localhost:3000/api",
-      
-        
+        baseURL:"https://lexi.lskit.com/api",
+        headers:{
+            "Content-type" : "aplication/json"
+        }
     });
+
     return {
         setToken:saveToken,
         token,
