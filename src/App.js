@@ -50,6 +50,7 @@ const query = ({ width }) => {
 
 function App() {
   const {getToken} = AuthUser();
+
   
     return(
       <BrowserRouter basename={getBasename()}>

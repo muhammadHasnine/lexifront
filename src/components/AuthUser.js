@@ -7,6 +7,7 @@ export default function AuthUser() {
         const userToken = JSON.parse(tokenString);
         return userToken;
     }
+    
     const getUser = () => {
         const userString = sessionStorage.getItem('user');
         const user_detail = JSON.parse(userString);
@@ -24,7 +25,8 @@ export default function AuthUser() {
         
     }
     const http = axios.create({
-        baseURL:"https://lexi.lskit.com/api",
+        // baseURL:"https://lexi.lskit.com/api",
+        baseURL:"/api",
         headers:{
             "Content-type" : "aplication/json"
         }

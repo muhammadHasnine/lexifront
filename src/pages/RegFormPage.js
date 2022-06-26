@@ -1,6 +1,6 @@
 import AuthForm, { STATE_LOGIN } from 'components/AuthForm';
 import AuthUser from 'components/AuthUser';
-import React, { useState } from 'react';
+import React, { useState,createContext } from 'react';
 import {
   Media,
   Card,
@@ -31,16 +31,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import arrowImage from 'assets/img/logo/arrowupanddown.png';
+import { Link } from 'react-router-dom';
 
 const LoginFormPage = () => {
+  const Name = createContext();
   const [modal,setModal] = useState(false);
   const [showPassword,setShowPassword] = useState(false);
   const [checkedA,setCheckedA] = useState(true);
   const [checkedB,setCheckedB] = useState(false);
   const [userId,setuserId] = useState();
+  const [dataa,setdata] = useState([]);
   const [password,setpassword] = useState();
   const [email,setemail] = useState();
-  const {http,setToken} = AuthUser();
+  const {http,setToken,setData} = AuthUser();
   
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -68,6 +71,8 @@ const LoginFormPage = () => {
   const handleLogoClick = () => {
     // this.props.history.push('/');
   };
+
+  console.log('this is otp data', dataa)
   
   const registrationFormHandle = (e) => {
     e.preventDefault();
@@ -75,7 +80,11 @@ const LoginFormPage = () => {
     //   setToken(res.data.user,res.data.access_token);
     // })
 
-    http.post('/teacher/register',{email:email,password:password,user_id:userId})
+    http.post('/teacher/register',{email:email,password:password,user_id:userId}).then((res)=>
+    
+    
+    {setdata(res.data)})
+
   
 
   }
@@ -397,7 +406,10 @@ const LoginFormPage = () => {
                   }}
                   onClick={registrationFormHandle}
                 >
-                  Get OTP
+                  {/* <Link to="/otpregform"> */}
+                    Get OTP
+                    {/* </Link> */}
+                  
                 </Button>
               </FormGroup>
             </Form>
